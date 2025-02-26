@@ -1,0 +1,40 @@
+// ==UserScript==
+// @name         hotdog refresh and click
+// @namespace    http://tampermonkey.net/
+// @version      2025-02-26
+// @description  try to take over the world!
+// @author       You
+// @match        https://hotdogtix.com/events/*
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=hotdogtix.com
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+    function refresh_and_find_button() {
+        const disable_button_selector = '.btn.btn-primary.desktop.buy-btn'; // Renamed to clarify it's a selector
+        const button = document.querySelector(disable_button_selector);
+
+        if (button) {
+            clearInterval(check_disable_Button);
+            function click_real_button(){
+                const real_button_selector = '.btn.btn-primary.desktop.buy-btn:not([disabled])'; // Renamed to clarify it's a selector
+                const real_button_element = document.querySelector(real_button_selector); // Get the element here!
+                if (real_button_element) { // Now check if the element exists
+                    real_button_element.click(); // Now call .click() on the *element*
+                    clearInterval(check_real_button);
+                }
+            }
+            const check_real_button = setInterval(click_real_button, 200)
+
+        } else {
+            location.reload();
+        }
+    }
+
+
+    // Set interval to check for the button
+    const check_disable_Button = setInterval(refresh_and_find_button, 1000);
+
+})();
