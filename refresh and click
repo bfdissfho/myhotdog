@@ -6,6 +6,8 @@
 // @author       You
 // @match        https://hotdogtix.com/events/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=hotdogtix.com
+// @updateURL    https://raw.githubusercontent.com/bfdissfho/myhotdog/refs/heads/main/refresh%20and%20click
+// @downloadURL  https://raw.githubusercontent.com/bfdissfho/myhotdog/refs/heads/main/refresh%20and%20click
 // @grant        none
 // ==/UserScript==
 
